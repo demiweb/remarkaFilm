@@ -10,11 +10,11 @@
   .big-menu__content {
     padding: 2.5% 0;
   }
-  .big-menu__column>span {
+  .big-menu__column > span {
     font-size: 40px;
     line-height: 30px;
   }
-  .big-menu__column>span::after {
+  .big-menu__column > span::after {
     margin: 1.7563vw 0;
     width: 70px;
   }
@@ -47,6 +47,7 @@
 @media screen and (max-width: 1200px) {
 
 }
+
 @media screen and (max-width: 1150px) {
   .header__menu {
     display: none;
@@ -56,7 +57,18 @@
   }
 
 }
+
 @media screen and (max-width: 992px) {
+  .hero-content {
+    padding-top: 55px;
+    padding-bottom: 40px;
+  }
+  .hero__phones {
+    display: none;
+  }
+  .mobile-header-contacts {
+    display: flex;
+  }
   .big-menu__content-center {
     flex-wrap: wrap;
   }
@@ -86,11 +98,43 @@
     right: 0;
     z-index: 1;
   }
+  .hero {
+    height: auto;
+  }
+  .hero__main--home {
+    justify-content: center;
+    align-items: center;
+  }
+  .home-hero-block {
+    padding-bottom: 5px;
+    padding-top: 170px;
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .home-hero-block__line {
+      margin-top: 15px;
+
+      p {
+        em {
+          font-size: 12px;
+          line-height: 19px;
+        }
+      }
+    }
+  }
+  .hero-block {
+    padding-left: 0;
+  }
   .header-container {
     padding: 20px 0;
+
     ul {
       display: none;
     }
+
     a {
       display: none;
     }
@@ -118,10 +162,14 @@
 }
 
 @media screen and (max-width: 600px) {
+  .big-menu__column > span::after {
+    margin: 20px 0;
+  }
   .big-menu__column {
     width: 100%;
     padding-right: 0;
     margin-bottom: 60px;
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -131,10 +179,64 @@
     padding-right: 0;
     margin-bottom: 60px;
   }
+  .home-hero-block {
+    p {
+      font-size: 12px;
+      line-height: 20px;
+    }
 
+    .home-hero-block__line {
+      margin-top: 5px;
+
+      p {
+        em {
+          font-size: 11px;
+          line-height: 17px;
+        }
+      }
+    }
+  }
+  .big-menu__column>span {
+    font-size: 34px;
+    line-height: 24px;
+  }
+  .big-menu__address {
+    width: 100%;
+    p {
+      font-size: 14px;
+    }
+    a, span {
+      font-size: 14px;
+    }
+  }
+
+  .mobile-header-contacts {
+    padding: 0;
+    .btn {
+      width: 50%;
+      flex-shrink: 0;
+      &::after {
+        background: $green;
+      }
+    }
+  }
+  .show-contacts {
+    margin-left: 0;
+    width: 50%;
+    span {
+      width: 100%;
+    }
+  }
 
 }
 
 @media screen and (max-width: 475px) {
 
+}
+
+@media screen and (max-width: 360px) {
+  .play-btn {
+    font-size: 8px;
+    line-height: 8px;
+  }
 }

@@ -1,3 +1,32 @@
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.body.querySelector(".header").classList.add('scrolled');
+    } else {
+        document.body.querySelector(".header").classList.remove('scrolled');
+    }
+}
+
+document.onload = () => {
+    scrollFunction();
+}
+let allLazyLoad = [...document.querySelectorAll('.lazyload')];
+function allLozadImg() {
+    allLazyLoad.forEach((el) => {
+        const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
+        observer.observe();
+        el.addEventListener('load', () => {
+            el.classList.add('is-loaded')
+        })
+        // if (el.loaded()) {
+        //     el.classList.add('is-loaded');
+        // }
+    })
+}
+
+allLozadImg();
+
 let searchOpener = document.querySelector('.search-opener');
 let searchBlock = document.querySelector('.search-block');
 let searchContainer = document.querySelector('.search-container');
@@ -191,4 +220,17 @@ function ifHaveVideoModals() {
 }
 
 ifHaveVideoModals();
+
+let showContactsMobile = document.querySelector('.show-contacts span');
+
+function openMobContacts() {
+    if (!showContactsMobile) {
+
+    } else {
+        showContactsMobile.addEventListener('click', () => {
+            showContactsMobile.classList.toggle('open');
+        })
+    }
+}
+openMobContacts();
 
