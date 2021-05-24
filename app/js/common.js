@@ -234,3 +234,17 @@ function openMobContacts() {
 }
 openMobContacts();
 
+
+$(document).ready(function(){
+    $('.slider-teachers').slick({
+        accessibility: true,
+        autoplay: true,
+        autoplaySpeed: 4500,
+        arrows: true,
+        prevArrow: $('.button-slide--prev'),
+        nextArrow: $('.button-slide--next'),
+
+});
+});
+
+

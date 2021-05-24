@@ -1,4 +1,16 @@
 @media screen and (max-width: 1600px) {
+  .gradient-block {
+    &::before {
+      height: 500px;
+      width: 80%;
+      filter: blur(440px);
+    }
+  }
+  section:not(.hero) {
+    padding-left: 75px;
+    box-sizing: border-box;
+  }
+
   .header__menu ul li a, .header__menu ul li svg text {
     font-size: 8px;
     line-height: 26px;
@@ -43,22 +55,167 @@
     font-size: 16px;
   }
 }
-
+@media screen and (max-width: 1500px) {
+  .our-offer {
+    padding-top: 170px;
+  }
+  .our-teachers {
+    padding-top: 150px;
+  }
+  .our-life {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  .our-life__single {
+    margin-bottom: 90px;
+    .img {
+      width: 520px;
+      height: 676px;
+    }
+    &--big {
+      .img {
+        width: 830px;
+        height: 460px;
+      }
+    }
+    &--center {
+      margin-top: 240px;
+    }
+  }
+  .offer {
+    margin-right: 6%;
+    width: 47%;
+  }
+  .welcome__text p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .teacher__left p{
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .teacher__left {
+    margin-right: 6%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .teacher__right .img {
+    width: 380px;
+    height: 510px;
+  }
+  .teacher-stats {
+    margin-right: 35px;
+  }
+  .single-stat {
+    margin-bottom: 40px;
+  }
+  .offer .img {
+    width: 240px;
+    height: 325px;
+  }
+}
 @media screen and (max-width: 1200px) {
-
+  .teacher__right .img {
+    width: 315px;
+    height: 420px;
+  }
+  .offer-text h3, .offer-text span {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .single-stat {
+    margin-bottom: 21px;
+  }
+  .teacher__left {
+    margin-right: 4%;
+    .name {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    span {
+      font-size: 12px;
+      line-height: 17px;
+      strong {
+        font-size: 9px;
+        line-height: 16px;
+      }
+    }
+  }
+  .single-stat {
+    span {
+      font-size: 42px;
+      line-height: 68px;
+    }
+    p {
+      font-size: 9px;
+      line-height: 16px;
+    }
+  }
 }
 
 @media screen and (max-width: 1150px) {
+  .offer .img {
+    width: 200px;
+    height: 275px;
+  }
   .header__menu {
     display: none;
   }
   .header__container {
     justify-content: flex-end;
   }
+  .title {
+    font-size: 42px;
+    line-height: 68px;
+  }
+
 
 }
 
 @media screen and (max-width: 992px) {
+  .single-teacher {
+    flex-wrap: wrap;
+  }
+  .teacher__left {
+    order: 1;
+    margin-bottom: 35px;
+
+  }
+  .our-life__single .img {
+    width: 100%;
+  }
+  .teacher__right {
+    order: 2;
+    flex-grow: 0;
+
+  }
+  .teacher-stats {
+    order: 3;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 0;
+    span {
+      font-size: 50px;
+      line-height: 65px;
+    }
+  }
+  section:not(.hero) {
+    padding-left: 0;
+  }
+  .offer-text {
+    padding-right: 15px;
+  }
+  .offer-text h3, .offer-text span {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .our-offer {
+    padding-top: 80px;
+  }
+  .welcome {
+    margin-top: 80px;
+  }
   .hero-content {
     padding-top: 55px;
     padding-bottom: 40px;
@@ -160,7 +317,14 @@
     margin-right: 39px;
   }
 }
-
+@media screen and (max-width: 650px) {
+  .teacher__left {
+    order: 2;
+  }
+  .teacher__right {
+    order: 1;
+  }
+}
 @media screen and (max-width: 600px) {
   .big-menu__column > span::after {
     margin: 20px 0;
