@@ -1,4 +1,6 @@
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+    scrollFunction()
+};
 
 function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -12,6 +14,7 @@ document.onload = () => {
     scrollFunction();
 }
 let allLazyLoad = [...document.querySelectorAll('.lazyload')];
+
 function allLozadImg() {
     allLazyLoad.forEach((el) => {
         const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
@@ -38,6 +41,7 @@ function openSearch() {
     } else {
         searchOpener.addEventListener('click', () => {
             searchBlock.classList.add('visible');
+            document.querySelector('.burger-btn').classList.add('no-events');
             setTimeout(() => {
                 searchContainer.classList.add('visible');
             }, 300)
@@ -45,6 +49,7 @@ function openSearch() {
         });
         searchClose.addEventListener('click', () => {
             searchContainer.classList.remove('visible');
+            document.querySelector('.burger-btn').classList.remove('no-events');
             setTimeout(() => {
                 searchBlock.classList.remove('visible');
             }, 300)
@@ -194,6 +199,7 @@ function changeBgPlayBtn() {
         })
     }
 }
+
 changeBgPlayBtn();
 
 
@@ -232,10 +238,11 @@ function openMobContacts() {
         })
     }
 }
+
 openMobContacts();
 
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.slider-teachers').slick({
         accessibility: true,
         autoplay: true,
@@ -243,8 +250,145 @@ $(document).ready(function(){
         arrows: true,
         prevArrow: $('.button-slide--prev'),
         nextArrow: $('.button-slide--next'),
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
 
-});
+    });
 });
 
+//change header-left colors
+var elementBtns = [...document.querySelectorAll('.white-block')];
+function checkIfWhiteVisible() {
+    let whiteList = [...document.querySelectorAll('.visible-white')];
+    if (!whiteList.length) {
+        document.querySelector('.header__left').classList.remove('invert');
+
+    } else {
+        document.querySelector('.header__left').classList.add('invert');
+
+    }
+}
+var Visible = function (target) {
+    if (!elementBtns.length) {
+
+    } else {
+
+        var targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            // Получаем позиции окна
+            windowPosition = {
+                top: window.pageYOffset + 80,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+            targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+            targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+            targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+            // Если элемент полностью видно, то запускаем следующий код
+            target.classList.add('visible-white');
+            checkIfWhiteVisible();
+        } else {
+            // Если элемент не видно, то запускаем этот код
+            target.classList.remove('visible-white');
+            checkIfWhiteVisible();
+        };
+    }
+    // Все позиции элемента
+
+};
+
+// Запускаем функцию при прокрутке страницы
+window.addEventListener('scroll', function () {
+
+    elementBtns.forEach((btn) => {
+        Visible(btn);
+    })
+});
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+elementBtns.forEach((btn) => {
+    Visible(btn);
+});
+
+
+let tabsCoursesBtn = [...document.querySelectorAll('.courses-list__checkbox-tab')];
+let coursesTabs = [...document.querySelectorAll('.courses-list__table')];
+
+function ifCoursesTabs() {
+    if (!tabsCoursesBtn.length) {
+
+    } else {
+        tabsCoursesBtn.forEach((btn, l) => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('selected')) {
+
+                } else {
+                    document.querySelector('.courses-list__checkbox-tab.selected').classList.remove('selected');
+                    btn.classList.add('selected');
+                    document.querySelector('.courses-list__table.selected').classList.remove('selected');
+
+                    coursesTabs[l].classList.add('selected');
+                }
+
+
+            })
+        })
+    }
+}
+
+ifCoursesTabs();
+
+
+let mobContactsBot = document.querySelector('.footer');
+var Visible2 = function (target) {
+    if (!mobContactsBot) {
+
+    } else {
+
+        var targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            // Получаем позиции окна
+            windowPosition = {
+                top: window.pageYOffset + 80,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+            targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+            targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+            targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+            // Если элемент полностью видно, то запускаем следующий код
+            document.querySelector('.mobile-header-contacts').classList.add('unvisible');
+        } else {
+            // Если элемент не видно, то запускаем этот код
+            document.querySelector('.mobile-header-contacts').classList.remove('unvisible');
+        };
+    }
+    // Все позиции элемента
+
+};
+
+// Запускаем функцию при прокрутке страницы
+window.addEventListener('scroll', function () {
+
+    Visible2(mobContactsBot);
+});
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+
+Visible2(mobContactsBot);
 
