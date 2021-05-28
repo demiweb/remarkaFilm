@@ -409,3 +409,8 @@ window.addEventListener('scroll', function () {
 
 Visible2(mobContactsBot);
 
+$(".go-up-btn").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("body").offset().top
+    }, 600);
+});
