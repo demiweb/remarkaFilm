@@ -1589,7 +1589,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 .gradient-block {
   width: 100%;
   position: relative;
-  display: none;
+
 
   & > * {
     z-index: 2;
@@ -1597,10 +1597,11 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   }
 
   &::before {
-    display: inline-block;
+    //display: inline-block;
     width: 90%;
     height: 400px;
     position: absolute;
+    display: none;
   }
 
   &--orange {
