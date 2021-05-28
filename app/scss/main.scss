@@ -646,7 +646,8 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
   &::before {
     content: '';
-    display: inline-block;
+    //display: inline-block;
+    display: none;
     position: absolute;
     top: 50%;
     left: 0;
@@ -1602,7 +1603,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     width: 90%;
     height: 400px;
     position: absolute;
-    //display: none;
+    display: none;
   }
 
   &--orange {
@@ -1615,7 +1616,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       left: 50%;
       width: 1px;
       height: 1px;
-      box-shadow: 0 0 900px 500px rgba(210, 105, 105, 0.25);
+      box-shadow: 0 0 900px 500px rgba(210, 105, 105, 0.15);
       transform: translate(-50%, -50%);
       z-index: 1;
       pointer-events: none;
@@ -1632,7 +1633,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       //height: 600px;
       width: 1px;
       height: 1px;
-      box-shadow: 0 0 900px 500px rgba(105, 210, 210, 0.6);
+      box-shadow: 0 0 900px 500px rgba(105, 210, 210, 0.15);
       transform: translate(-50%, -20%);
       z-index: 1;
       pointer-events: none;
@@ -1649,7 +1650,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       //height: 900px;
       width: 1px;
       height: 1px;
-      box-shadow: 0 0 900px 500px rgba(137, 45, 255, 0.45);
+      box-shadow: 0 0 900px 500px rgba(137, 45, 255, 0.15);
       transform: translate(-50%, -20%);
       z-index: 1;
       pointer-events: none;
@@ -1666,7 +1667,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       left: 50%;
       width: 1px;
       height: 1px;
-      box-shadow: 0 0 900px 500px rgba(236, 202, 137, 0.25);
+      box-shadow: 0 0 900px 500px rgba(236, 202, 137, 0.15);
       //height: 650px;
       transform: translate(-50%, -20%);
       z-index: 1;
@@ -3049,6 +3050,7 @@ img.lazyload, video.lazyload {
   align-items: flex-start;
   justify-content: flex-start;
   background: #f4f4f4;
+  z-index: 2;
 
 }
 

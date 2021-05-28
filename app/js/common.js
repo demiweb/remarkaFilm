@@ -123,6 +123,11 @@ let menuHeaderBlock = document.querySelector('.header__big-menu');
 function animMenuOpening(type, menu) {
     function startAnimationMenu(itm) {
         itm.classList.add('opening');
+        if (window.innerWidth < 768) {
+
+        } else {
+
+        }
         setTimeout(() => {
             itm.classList.add('opened');
         }, 700)
@@ -130,9 +135,16 @@ function animMenuOpening(type, menu) {
 
     function startAnimationMenuBack(itm) {
         itm.classList.remove('opened');
-        setTimeout(() => {
-            itm.classList.add('opening');
-        }, 700)
+        if (window.innerWidth < 768) {
+            setTimeout(() => {
+                itm.classList.add('opening');
+            }, 200)
+        } else {
+            setTimeout(() => {
+                itm.classList.add('opening');
+            }, 700)
+        }
+
     }
 
     let menuHeader = menu.querySelector('.big-menu__header');

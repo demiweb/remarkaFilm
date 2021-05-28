@@ -486,6 +486,12 @@
   .big-menu__content-center {
     flex-wrap: wrap;
   }
+  .header__big-menu {
+    transition: all 0.4s cubic-bezier(0.29, 0.07, 0, 1.01);
+    &.open {
+      transition: all 0.4s cubic-bezier(0.29, 0.07, 0, 1.01);
+    }
+  }
   .big-menu__column {
     width: 50%;
     padding-right: 6%;
