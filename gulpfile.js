@@ -2,6 +2,7 @@ var syntax        = 'scss'; // Syntax: sass or scss;
 
 var gulp          = require('gulp'),
 		gutil         = require('gulp-util' ),
+		imagemin         = require('gulp-imagemin' ),
 		sass          = require('gulp-sass'),
 		browsersync   = require('browser-sync'),
 		concat        = require('gulp-concat'),
@@ -66,6 +67,17 @@ gulp.task('det', async function() {
 });
 gulp.task('img', async function () {
 	gulp.src('app/img/**/*.*') // Выберем файлы по нужному пути
+		.pipe(imagemin([
+			imagemin.gifsicle({interlaced: true}),
+			imagemin.mozjpeg({quality: 75, progressive: true}),
+			imagemin.optipng({optimizationLevel: 5}),
+			imagemin.svgo({
+				plugins: [
+					{removeViewBox: true},
+					{cleanupIDs: false}
+				]
+			})
+		]))
 		.pipe(gulp.dest('dist/img'))// Переместим их в папку build
 
 		.pipe(browserSync.stream());
