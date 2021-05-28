@@ -259,6 +259,7 @@ $(document).ready(function () {
 
 //change header-left colors
 var elementBtns = [...document.querySelectorAll('.white-block')];
+
 function checkIfWhiteVisible() {
     let whiteList = [...document.querySelectorAll('.visible-white')];
     if (!whiteList.length) {
@@ -269,6 +270,7 @@ function checkIfWhiteVisible() {
 
     }
 }
+
 var Visible = function (target) {
     if (!elementBtns.length) {
 
@@ -299,7 +301,8 @@ var Visible = function (target) {
             // Если элемент не видно, то запускаем этот код
             target.classList.remove('visible-white');
             checkIfWhiteVisible();
-        };
+        }
+        ;
     }
     // Все позиции элемента
 
@@ -344,6 +347,7 @@ function ifCoursesTabs() {
     }
 }
 
+
 ifCoursesTabs();
 
 
@@ -376,7 +380,8 @@ var Visible2 = function (target) {
         } else {
             // Если элемент не видно, то запускаем этот код
             document.querySelector('.mobile-header-contacts').classList.remove('unvisible');
-        };
+        }
+        ;
     }
     // Все позиции элемента
 
