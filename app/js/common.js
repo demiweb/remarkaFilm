@@ -361,11 +361,97 @@ function ifCoursesTabs() {
 
 
 ifCoursesTabs();
+let courseMenuInfo = document.querySelector('.course-menu');
+let dontForget = document.querySelector('.dont-forget');
 
+function ifCourseMenuHave() {
+    if (!courseMenuInfo) {
+
+    } else {
+        let btnOpenCourse = courseMenuInfo.querySelector('.hide-btn');
+        btnOpenCourse.addEventListener('click', () => {
+
+            courseMenuInfo.classList.toggle('hide');
+            courseMenuInfo = document.querySelector('.course-menu');
+            if (courseMenuInfo.classList.contains('hide')) {
+                btnOpenCourse.innerHTML = btnOpenCourse.dataset.hide;
+            } else {
+                btnOpenCourse.innerHTML = btnOpenCourse.dataset.text;
+            }
+        })
+        dontForget.addEventListener('click', () => {
+            courseMenuInfo.classList.toggle('mob-on');
+            courseMenuInfo = document.querySelector('.course-menu');
+            if (courseMenuInfo.classList.contains('mob-on')) {
+                dontForget.querySelector('.hide-btn').innerHTML = dontForget.querySelector('.hide-btn').dataset.hide;
+            } else {
+                dontForget.querySelector('.hide-btn').innerHTML = dontForget.querySelector('.hide-btn').dataset.text;
+            }
+        })
+    }
+}
+ifCourseMenuHave();
 
 let mobContactsBot = document.querySelector('.footer');
+
 var Visible2 = function (target) {
     if (!mobContactsBot) {
+    } else {
+        var targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            // Получаем позиции окна
+            windowPosition = {
+                top: window.pageYOffset + 80,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+            targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+            targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+            targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+            // Если элемент полностью видно, то запускаем следующий код
+            if (courseMenuInfo) {
+                courseMenuInfo.classList.add('unvisible');
+            }
+
+            document.querySelector('.mobile-header-contacts').classList.add('unvisible');
+        } else {
+            // Если элемент не видно, то запускаем этот код
+            document.querySelector('.mobile-header-contacts').classList.remove('unvisible');
+        }
+        ;
+    }
+    // Все позиции элемента
+
+};
+
+// Запускаем функцию при прокрутке страницы
+window.addEventListener('scroll', function () {
+    Visible2(mobContactsBot);
+});
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+
+Visible2(mobContactsBot);
+
+$(".go-up-btn").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("body").offset().top
+    }, 600);
+});
+
+
+
+
+let jsAnimBlocks = [...document.querySelectorAll('.js-anim')];
+var Visible3 = function (target) {
+    if (!jsAnimBlocks.length) {
 
     } else {
 
@@ -388,29 +474,155 @@ var Visible2 = function (target) {
             targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
             targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
             // Если элемент полностью видно, то запускаем следующий код
-            document.querySelector('.mobile-header-contacts').classList.add('unvisible');
+            setTimeout(() => {
+                target.classList.add('anim-start');
+            }, 300)
+
+
         } else {
             // Если элемент не видно, то запускаем этот код
-            document.querySelector('.mobile-header-contacts').classList.remove('unvisible');
-        }
-        ;
+            // document.querySelector('.mobile-header-contacts').classList.remove('unvisible');
+        };
     }
     // Все позиции элемента
 
 };
 
+
 // Запускаем функцию при прокрутке страницы
 window.addEventListener('scroll', function () {
+    jsAnimBlocks.forEach((el) => {
+    Visible3(el);
+    })
 
-    Visible2(mobContactsBot);
 });
 
 // А также запустим функцию сразу. А то вдруг, элемент изначально видно
 
-Visible2(mobContactsBot);
-
-$(".go-up-btn").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("body").offset().top
-    }, 600);
+jsAnimBlocks.forEach((el) => {
+    Visible3(el);
 });
+
+
+let openModalRequest = [...document.querySelectorAll('.open-modal--request')];
+let modalRequestWindow = document.querySelector('.modal-window--request');
+
+function modalRequest() {
+    if (!openModalRequest.length) {
+
+    } else {
+        openModalRequest.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalRequestWindow.classList.add('open');
+                document.body.classList.add('no-scroll');
+
+                modalRequestWindow.querySelector('.modal-request--bg').classList.add('move-anim');
+
+            })
+        })
+    }
+}
+
+modalRequest();
+
+let closeModalBtn = [...document.querySelectorAll('.close-modal')];
+
+function closeMdlBtn() {
+    if (!closeModalBtn.length) {
+
+    } else {
+        closeModalBtn.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal-window').classList.remove('open');
+                document.body.classList.remove('no-scroll');
+                if (btn.closest('.modal-window').classList.contains('modal-window--request')) {
+                    btn.closest('.modal-window').querySelector('.modal-request--bg').classList.remove('move-anim');
+                }
+            })
+        })
+    }
+}
+closeMdlBtn();
+
+
+let btnThanksModal = [...document.querySelectorAll('.contacts__form .go-link')];
+let modalThanksWindow = document.querySelector('.modal-window--thanks');
+
+function thanksModalF() {
+    if(!btnThanksModal.length) {
+
+    } else {
+        btnThanksModal.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (document.querySelector('.modal-window.open')) {
+                    document.querySelector('.modal-window.open').classList.remove('open');
+                }
+                modalThanksWindow.classList.add('open');
+                document.body.classList.add('no-scroll');
+                modalThanksWindow.querySelector('.modal-request--bg').classList.add('move-anim');
+            })
+        })
+    }
+}
+
+thanksModalF();
+
+
+
+let sectionMainBlock = document.querySelector('main');
+// let totalBlocksForMenuCourse = [sectionHero, mobContactsBot];
+
+var Visible5 = function (target) {
+    if (!courseMenuInfo) {
+
+    } else {
+
+        var targetPosition = {
+                top: window.pageYOffset + target.getBoundingClientRect().top,
+                left: window.pageXOffset + target.getBoundingClientRect().left,
+                right: window.pageXOffset + target.getBoundingClientRect().right,
+                bottom: window.pageYOffset + target.getBoundingClientRect().bottom
+            },
+            // Получаем позиции окна
+            windowPosition = {
+                top: window.pageYOffset + 80,
+                left: window.pageXOffset,
+                right: window.pageXOffset + document.documentElement.clientWidth,
+                bottom: window.pageYOffset + document.documentElement.clientHeight
+            };
+
+        if (targetPosition.bottom > windowPosition.top && // Если позиция нижней части элемента больше позиции верхней чайти окна, то элемент виден сверху
+            targetPosition.top < windowPosition.bottom && // Если позиция верхней части элемента меньше позиции нижней чайти окна, то элемент виден снизу
+            targetPosition.right > windowPosition.left && // Если позиция правой стороны элемента больше позиции левой части окна, то элемент виден слева
+            targetPosition.left < windowPosition.right) { // Если позиция левой стороны элемента меньше позиции правой чайти окна, то элемент виден справа
+            // Если элемент полностью видно, то запускаем следующий код
+            courseMenuInfo.classList.remove('unvisible');
+
+        } else {
+            // Если элемент не видно, то запускаем этот код
+
+            courseMenuInfo.classList.add('unvisible');
+
+        };
+    }
+    // Все позиции элемента
+
+};
+
+
+// Запускаем функцию при прокрутке страницы
+window.addEventListener('scroll', function () {
+
+    Visible5(sectionMainBlock);
+
+});
+
+// А также запустим функцию сразу. А то вдруг, элемент изначально видно
+
+Visible5(sectionMainBlock);
+
+
+
+
