@@ -268,7 +268,8 @@ $(document).ready(function () {
 
     });
 });
-
+let courseMenuInfo = document.querySelector('.course-menu');
+let dontForget = document.querySelector('.dont-forget');
 //change header-left colors
 var elementBtns = [...document.querySelectorAll('.white-block')];
 
@@ -276,10 +277,20 @@ function checkIfWhiteVisible() {
     let whiteList = [...document.querySelectorAll('.visible-white')];
     if (!whiteList.length) {
         document.querySelector('.header__left').classList.remove('invert');
+        if (!courseMenuInfo) {
 
-    } else {
+        } else {
+            let btnOpenCourse = courseMenuInfo.querySelector('.hide-btn');
+            btnOpenCourse.style.color = 'white';
+        }
+        } else {
         document.querySelector('.header__left').classList.add('invert');
+        if (!courseMenuInfo) {
 
+        } else {
+            let btnOpenCourse = courseMenuInfo.querySelector('.hide-btn');
+            btnOpenCourse.style.color = 'black';
+        }
     }
 }
 
@@ -361,8 +372,7 @@ function ifCoursesTabs() {
 
 
 ifCoursesTabs();
-let courseMenuInfo = document.querySelector('.course-menu');
-let dontForget = document.querySelector('.dont-forget');
+
 
 function ifCourseMenuHave() {
     if (!courseMenuInfo) {
@@ -622,6 +632,32 @@ window.addEventListener('scroll', function () {
 // А также запустим функцию сразу. А то вдруг, элемент изначально видно
 
 Visible5(sectionMainBlock);
+
+//open more text course
+
+let coursePText = document.querySelector('.about-course__left');
+
+function openCourseText() {
+    if (!coursePText) {
+
+    } else {
+        let pText = coursePText.querySelector('p');
+        let btnText = coursePText.querySelector('.load-more');
+
+        btnText.addEventListener('click', () => {
+            btnText.classList.toggle('open');
+            pText.classList.toggle('open');
+            btnText = document.querySelector('.about-course__left .load-more');
+            if (btnText.classList.contains('open')) {
+                btnText.innerHTML = btnText.dataset.hide;
+            } else {
+                btnText.innerHTML = btnText.dataset.text;
+            }
+        })
+    }
+
+}
+openCourseText();
 
 
 

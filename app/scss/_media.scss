@@ -83,6 +83,10 @@
   }
 }
 @media screen and (max-width: 1500px) {
+  .course-program__block .text .title {
+    font-size: 50px;
+    line-height: 56px;
+  }
   .course-info__course-details {
     ul {
       max-width: 80%;
@@ -91,6 +95,14 @@
         padding-right: 7%;
       }
     }
+  }
+  .follow-courses a {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  .course-program__block .img, .about-course__right {
+    width: 513px;
+    height: 694px;
   }
   .hero-title {
     font-size: 40px;
@@ -124,9 +136,10 @@
   }
   .our-teachers {
     padding-top: 150px;
+    padding-bottom: 150px;
   }
   .our-life {
-    padding-top: 150px;
+    padding-top: 10px;
     padding-bottom: 150px;
   }
   .our-life__single {
@@ -167,8 +180,55 @@
   }
 }
 @media screen and (max-width: 1400px) {
+  .our-teachers:last-child {
+    padding-bottom: 140px;
+  }
   .blog-container .title {
     margin-bottom: 60px;
+  }
+  .course-program__block .img, .about-course__right {
+    width: 411px;
+    height: 556px;
+  }
+  .course-program__block .text .title {
+    font-size: 42px;
+    line-height: 48px;
+    margin-bottom: 30px;
+  }
+  .course-program__block {
+    margin-bottom: 140px;
+  }
+  .contacts-socials {
+    padding: 130px 0 80px;
+  }
+  .follow-courses {
+    margin-top: 100px;
+  }
+  .about-course__left .title {
+    margin-bottom: 35px;
+  }
+  .course-reviews__container {
+    & > h1, & > h2, & > h3, &>h4, &>h5, &>h6 {
+      font-size: 42px;
+      line-height: 56px;
+
+    }
+  }
+  .social-btns a {
+    width: 230px;
+    height: 52px;
+  }
+  .course-reviews {
+    padding: 110px 0;
+  }
+  .follow-courses a::after {
+    height: 20px;
+  }
+  .course-program {
+    padding: 140px 0;
+  }
+  .about-course__container {
+    padding: 40px 0;
   }
   .blog-container>.btn {
     margin-top: 50px;
@@ -240,6 +300,10 @@
   }
 }
 @media screen and (max-width: 1200px) {
+  .course-program__block .text .title  {
+    font-size: 36px;
+    line-height: 44px;
+  }
   .hero-title {
     font-size: 28px;
     line-height: 36px;
@@ -338,8 +402,54 @@
 }
 
 @media screen and (max-width: 1150px) {
+  .our-teachers:last-child {
+    padding-bottom: 80px;
+  }
+  .about-course__right, .course-program__block .img {
+    width: 350px;
+    height: 473px;
+  }
   .course-info {
     padding: 120px 0 0;
+  }
+  .course-program__block .img {
+    margin-right: 5%;
+  }
+  .course-program__block .text .courses-list__links {
+    margin-top: 33px;
+  }
+  .follow-courses {
+    margin-top: 75px;
+  }
+  .course-reviews__container>h1, .course-reviews__container>h2, .course-reviews__container>h3, .course-reviews__container>h4, .course-reviews__container>h5, .course-reviews__container>h6 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .follow-courses a {
+    font-size: 14px;
+    line-height: 13px;
+    padding: 8px 0;
+    &::after {
+      height: 15px;
+    }
+  }
+  .contacts-socials {
+    padding: 100px 0 30px;
+  }
+  .course-reviews {
+    padding: 80px 0;
+  }
+  .gift-courses {
+    margin-top: 80px;
+  }
+  .course-program {
+    padding: 80px 0;
+  }
+  .course-program__block {
+    margin-bottom: 80px;
+  }
+  .course-program__block.course-program__block--reverse .img {
+    margin-left: 5%;
   }
   .course-info__course-details {
     ul {
@@ -424,6 +534,45 @@
 }
 
 @media screen and (max-width: 992px) {
+  .course-program__block .text .courses-list__links {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    a {
+      margin-right: 0;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .about-course__left p {
+    line-height: 19px;
+  }
+
+  .course-program__block .text .title {
+    font-size: 26px;
+    line-height: 34px;
+  }
+  .contacts-socials__container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .about-course__left .title {
+    margin-bottom: 23px;
+  }
+  .course-reviews__reviews {
+    margin-top: 40px;
+  }
+  .for-agency {
+    padding: 0 13px;
+
+  }
+  .social-btns {
+    margin-left: 0;
+    margin-top: 20px;
+  }
   .hero-title {
     font-size: 22px;
     line-height: 28px;
@@ -742,8 +891,11 @@
     width: 170px;
     height: 230px;
   }
+  .our-teachers {
+    padding-bottom: 75px;
+  }
   .our-life {
-    padding-top: 73px;
+    padding-top: 10px;
     padding-bottom: 73px;
   }
   .our-life__single {
@@ -771,6 +923,34 @@
 
 }
 @media screen and (max-width: 768px) {
+  .course-program__block {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .img {
+
+      margin: 0 auto 40px;
+    }
+  }
+  .course-program__block.course-program__block--reverse {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .img {
+      margin: 0 auto 40px;
+    }
+  }
+  .about-course__container {
+    flex-direction: column-reverse;
+  }
+  .course-reviews__container>h1, .course-reviews__container>h2, .course-reviews__container>h3, .course-reviews__container>h4, .course-reviews__container>h5, .course-reviews__container>h6 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .about-course__right, .course-program__block .img {
+    margin:0 auto 30px;
+  }
+
   .course-info {
     padding: 120px 0 0;
   }
@@ -946,7 +1126,42 @@
   }
 }
 @media screen and (max-width: 650px) {
+  .about-course__right, .course-program__block .img {
+    width: 100%;
+    height: auto;
+  }
+  .course-reviews__reviews {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 
+  .course-reviews__single-reviews {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .gift-courses a {
+    text-align: center;
+    font-weight: normal;
+  }
+  .social-btns {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    a {
+      margin-right: 0;
+      width: 100%;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
   .course-info {
     padding: 90px 0 30px;
   }
@@ -1121,6 +1336,7 @@
 
   .our-teachers {
     padding-top: 73px;
+    padding-bottom: 60px;
   }
   .single-teacher {
     margin-top: 35px;
