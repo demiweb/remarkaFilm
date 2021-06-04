@@ -455,6 +455,11 @@ $(".go-up-btn").click(function() {
         scrollTop: $("body").offset().top
     }, 600);
 });
+$(".go-down-btn").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("main").offset().top
+    }, 200);
+});
 
 
 
@@ -658,6 +663,23 @@ function openCourseText() {
 
 }
 openCourseText();
+
+
+let videoPLayPlay = [...document.querySelectorAll('.welcome_video')];
+
+function playVideoWelcome() {
+    if (!videoPLayPlay.length) {
+
+    } else {
+        videoPLayPlay.forEach((block) => {
+            let btn = block.querySelector('.play-video');
+            btn.addEventListener('click', () => {
+                block.classList.add('play');
+            })
+        })
+    }
+}
+playVideoWelcome();
 
 
 
