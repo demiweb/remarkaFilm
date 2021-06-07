@@ -681,6 +681,67 @@ function playVideoWelcome() {
 }
 playVideoWelcome();
 
+function createNewBtnHideComment(li) {
+    let newBtn = document.createElement('div');
+    newBtn.classList.add('comment-btn');
+    let newImg = document.createElement('img');
+    newImg.src = './img/coomment-btn.svg';
+    newBtn.appendChild(newImg);
+    li.appendChild(newBtn);
+    newBtn.addEventListener('click', () => {
+        li.classList.toggle('active');
+    })
+}
+let commentsList = [...document.querySelectorAll('.single-comment')];
+
+function ifTextMoreHeight() {
+
+    if (!commentsList.length) {
+
+    } else {
+        commentsList.forEach((li, k) => {
+            let pText = li.querySelector('p');
+
+            let textPHeight = pText.offsetHeight;
+            console.log(textPHeight);
+            if (textPHeight > 136) {
+                li.classList.add('hidden');
+                let newcommentsList = [...document.querySelectorAll('.single-comment')];
+
+                if (newcommentsList[k].querySelector('.comment-btn')) {
+                    // console.log('have btn')
+                } else {
+                    // console.log('tutochki')
+                    createNewBtnHideComment(li);
+                }
+
+
+
+            } else {
+                // console.log('lol why')
+                li.classList.remove('hidden');
+
+
+                let btnHave = li.querySelector('.comment-btn');
+                // console.log(btnHave);
+                if (btnHave) {
+                    btnHave.remove();
+                } else {
+
+                }
+            }
+            commentsList = [...document.querySelectorAll('.single-comment')];
+            return commentsList;
+        })
+    }
+}
+
+ifTextMoreHeight();
+
+window.addEventListener('resize',() => {
+    ifTextMoreHeight();
+})
+
 
 
 

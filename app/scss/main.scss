@@ -4938,6 +4938,126 @@ img.lazyload, video.lazyload {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  > a {
+    margin: 10px auto;
+    padding-bottom: 7px;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid #242424;
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: uppercase;
+    color: #242424;
+  }
+}
+.comments__list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 100px;
+
+}
+.blog-page {
+  padding: 140px 0;
+  width: 100%;
+}
+.single-comment {
+  width: calc(50% - 30px);
+  max-width: 570px;
+  box-sizing: border-box;
+  margin-right: 60px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 12px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  span {
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: #242424;
+  }
+  p {
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    color: #242424;
+    margin-top: 20px;
+    position: relative;
+
+
+
+  }
+  &.hidden {
+    p {
+      max-height: 135px;
+      overflow: hidden;
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 60%);
+      }
+    }
+  }
+  &.hidden.active {
+   p {
+     max-height: none;
+     margin-bottom: 20px;
+     &::after {
+       content: none;
+     }
+   }
+    .comment-btn {
+      transform: rotate(-180deg);
+    }
+  }
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+
+}
+.comment-btn {
+  width: 38px;
+  height: 44px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.2, 1.2);
+    transition: transform 0.3s ease;
+
+  }
 }
 
 @import "media"; // Always at the end
