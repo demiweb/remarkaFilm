@@ -237,13 +237,14 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 590px;
+
 
   p {
     margin-top: 12px;
     font-family: $main-font;
     font-style: normal;
     font-weight: 500;
+    max-width: 590px;
     font-size: 16px;
     line-height: 29px;
     text-align: center;
@@ -2126,6 +2127,7 @@ img.lazyload, video.lazyload {
 
 }
 
+
 .slider-buttons-control {
   width: 100%;
   display: flex;
@@ -2134,6 +2136,7 @@ img.lazyload, video.lazyload {
   justify-content: space-between;
 
 }
+
 
 .slider-teachers {
   width: 100%;
@@ -3764,6 +3767,9 @@ img.lazyload, video.lazyload {
   text-align: center;
   text-transform: uppercase;
   color: $white;
+  strong {
+    font-weight: bold;
+  }
 }
 
 .course-info {
@@ -5058,6 +5064,424 @@ img.lazyload, video.lazyload {
     transition: transform 0.3s ease;
 
   }
+}
+
+.pagination {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    z-index: 1;
+    li {
+      margin-right: 14px;
+      z-index: 1;
+
+      a,span {
+        font-family: $second-font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 10px;
+        line-height: 10px;
+        text-transform: uppercase;
+        color: #9C9C9C;
+        text-decoration: none;
+        padding: 4px 0;
+        display: inline-block;
+        box-sizing: border-box;
+        &:hover {
+          color: $white;
+        }
+      }
+      span {
+        color: $white;
+        border-bottom: 1px solid $white;
+      }
+      &:first-child {
+        margin-right: 10%;
+
+        a {
+          color: $white;
+          height: 76px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: 21px;
+          &::before {
+            display: inline-block;
+            width: 72px;
+            height: 76px;
+            content: '';
+            background: url("../img/pag-circle.svg") no-repeat center;
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            left: -14px;
+            top: 50%;
+            height: 14px;
+            width:26px;
+            display: inline-block;
+            background: url("../img/pag-arr.svg") no-repeat center;
+            background-size: 100%;
+            transform: translate(0, -50%);
+            transition: transform 0.3s ease;
+          }
+          &:hover {
+            &::after {
+              transition: transform 0.3s ease;
+              transform: translate(0, -50%) scale(1.2, 1.2);
+            }
+          }
+        }
+
+      }
+      &:last-child {
+        a {
+          color: $white;
+          height: 76px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-right: 21px;
+          &::before {
+            display: inline-block;
+            width: 72px;
+            height: 76px;
+            content: '';
+            background: url("../img/pag-circle.svg") no-repeat center;
+            z-index: -1;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%) rotate(-180deg);
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            height: 14px;
+            width:26px;
+            display: inline-block;
+            background: url("../img/pag-arr.svg") no-repeat center;
+            background-size: 100%;
+            transform: translate(0, -50%) rotate(-180deg);
+            transition: transform 0.3s ease;
+          }
+          &:hover {
+            &::after {
+              transition: transform 0.3s ease;
+              transform: translate(0, -50%) scale(1.2, 1.2) rotate(-180deg);
+            }
+          }
+        }
+
+        margin-right: 0;
+        margin-left: calc(10% - 14px);
+      }
+    }
+  }
+}
+
+.white-block {
+  .pagination {
+    ul {
+      li {
+        a {
+          &:hover {
+            color: $black;
+          }
+        }
+        span {
+          color: $black;
+          border-bottom-color: $black;
+        }
+        &:first-child, &:last-child {
+          a {
+            color: $black;
+            &::after {
+              background: url("../img/blc-pag-arr.svg") no-repeat center;
+              background-size: 100%;
+            }
+            &::before {
+              background: url("../img/cir-blc-pag.svg") no-repeat center;
+              background-size: 100%;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+.search-result {
+  .courses {
+    padding: 65px 0;
+    .courses-list__table {
+      display: flex;
+    }
+  }
+
+}
+.teachers {
+  padding: 110px 0 0;
+  width: 100%;
+}
+.teachers__container {
+  width: 100%;
+
+}
+.teachers__list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+}
+.teacher-link {
+  width: calc((100% / 4) - (90px / 4));
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-decoration: none;
+  margin-bottom: 110px;
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+  .img {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    padding-top: 118%;
+    margin-bottom: 30px;
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  span {
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+    transition: color 0.3s ease;
+  }
+  p {
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #818181;
+    margin-top: 5px;
+  }
+  &:hover {
+    .img {
+      transform: scale(1.05, 1.05);
+      transition: transform 0.3s ease;
+    }
+    span {
+      color: $green;
+      transition: color 0.3s ease;
+    }
+    .teacher-line {
+      width: 75px;
+      background: $green;
+      transition: width 0.3s ease, background-color 0.3s ease;
+      &::after {
+        transition: border 0.3s ease;
+        border-color: $green;
+      }
+    }
+  }
+}
+.teacher-line {
+  width: 33px;
+  height: 1px;
+  box-sizing: border-box;
+  margin-top: 35px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  background: $white;
+  &::after {
+    position: absolute;
+    height: 5px;
+    display: inline-block;
+    content: '';
+    width: 5px;
+    border: 2px solid $white;
+    right: 0;
+    top: 50%;
+    border-radius: 0 2px 0 0;
+    transform: translate(0, -50%) rotate(45deg);
+    border-left: none;
+    border-bottom: none;
+    transition: border 0.3s ease;
+  }
+}
+
+.teacher-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 140px;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-grow: 1;
+    a {
+      text-decoration: none;
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 27px;
+      color: $green;
+      margin-bottom: 8px;
+      margin-top: 40px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    span {
+      font-family: $second-font;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 26px;
+      line-height: 34px;
+      text-transform: uppercase;
+
+      color: $white;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    p {
+      font-family: $main-font;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 27px;
+      color: $white;
+      margin-bottom: 8px;
+      strong {
+        font-family: $second-font;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+  .img {
+    width: 330px;
+    flex-shrink: 0;
+    height: 0;
+    padding-top: 390px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 70px;
+    img {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+.another-teachers {
+  width: 100%;
+  margin-bottom: 70px;
+}
+.teacher-title {
+  font-family: $second-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 54px;
+  text-transform: uppercase;
+  width: 100%;
+  color: $white;
+  display: inline-block;
+  margin-bottom: 60px;
+}
+.other-teachers-link {
+    margin: 0 auto 20px;
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: uppercase;
+    padding: 7px 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    z-index: 2;
+    position: relative;
+    color: $green;
+    transition: color 0.3s ease;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $white;
+      z-index: -1;
+      content: '';
+      display: inline-block;
+      transition: height 0.3s ease, background-color 0.3s ease;
+    }
+
+    &:hover {
+      color: $black;
+      transition: color 0.3s ease;
+
+      &::after {
+        background: $green;
+        height: 100%;
+        transition: height 0.3s ease, background-color 0.3s ease;
+      }
+
+    }
+
 }
 
 @import "media"; // Always at the end
