@@ -2558,6 +2558,7 @@ img.lazyload, video.lazyload {
   border-bottom: 1px solid #CFCFCF;
   position: relative;
 
+
   &:first-child {
     border-top: 1px solid #CFCFCF;
   }
@@ -2696,7 +2697,7 @@ img.lazyload, video.lazyload {
     line-height: 12px;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-
+    transition: color 0.4s ease;
     color: #9C9C9C;
   }
 }
@@ -5544,6 +5545,54 @@ img.lazyload, video.lazyload {
   }
   & > *:last-child {
     margin-bottom: 0;
+  }
+}
+
+.go-back-links-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 30px;
+  a {
+    padding: 4px 0;
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    box-sizing: border-box;
+    border-bottom: 1px solid $white;
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $green;
+  }
+}
+
+.courses-list__table {
+  &.courses-list__table--custom {
+    & > .courses-list__line {
+      padding: 0;
+      border: none;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background: $green;
+        .courses-list__name span {
+          color: $white;
+        }
+        .courses-list__name p {
+          color: $white;
+          transition: color 0.3s ease;
+        }
+        .courses-list__line>svg path {
+          fill: $black;
+        }
+      }
+    }
   }
 }
 
