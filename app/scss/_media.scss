@@ -684,6 +684,24 @@
 }
 
 @media screen and (max-width: 992px) {
+  .blog-article__container {
+    p {
+      margin-bottom: 12px;
+      font-size: 12px;
+      line-height: 24px;
+      & + img {
+        margin-top: 14px;
+      }
+    }
+    img {
+      margin-bottom: 45px;
+    }
+    h1, h2, h3, h4, h5, h6, a {
+      font-size: 12px;
+      line-height: 24px;
+      margin-bottom: 14px;
+    }
+  }
   .teachers {
     padding-top: 70px;
   }
@@ -1409,6 +1427,10 @@
 }
 
 @media screen and (max-width: 650px) {
+  .blog-container .title {
+    font-size: 22px;
+    line-height: 30px;
+  }
   .teacher-title {
     font-size: 32px;
     line-height: 40px;
