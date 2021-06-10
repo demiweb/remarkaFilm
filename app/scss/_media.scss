@@ -204,6 +204,13 @@
 }
 
 @media screen and (max-width: 1400px) {
+  .contacts-big {
+    padding-top: 150px;
+  }
+  .contacts-big__container>ul>li .left p {
+    font-size: 32px;
+    line-height: 44px;
+  }
   .our-choice {
     padding: 100px 0;
   }
@@ -354,6 +361,14 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .contacts-big__container>ul>li .left p {
+    font-size: 28px;
+    line-height: 44px;
+  }
+  .contacts-big__container>ul>li {
+    width: 47%;
+    margin-right: 6%;
+  }
   .how-it__videos {
     margin-top: 45px;
   }
@@ -684,6 +699,65 @@
 }
 
 @media screen and (max-width: 992px) {
+  .contacts-big__container>ul>li {
+    flex-direction: column;
+    padding: 23px 0 40px;
+    .left {
+      margin-bottom: 15px;
+      p {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
+    .right {
+      > p, a {
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+  }
+  .white-block .pagination ul li:first-child a, .white-block .pagination ul li:last-child a {
+    color: rgba(255, 255, 255, 0);
+  }
+  .courses-list__table {
+    &.courses-list__table--custom {
+      & > .courses-list__line {
+
+
+        &:hover {
+          background: $green;
+
+          .img-hover {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+          }
+          .courses-hoverable {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          .courses-list__name span {
+            color: $black;
+          }
+
+          ul {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+          }
+
+          .courses-list__name p {
+            //color: $white;
+            transition: color 0.3s ease;
+          }
+
+          .courses-list__line > svg path {
+            fill: $black;
+          }
+        }
+      }
+    }
+  }
   .blog-article__container {
     p {
       margin-bottom: 12px;
@@ -1425,8 +1499,31 @@
     line-height: 12px;
   }
 }
-
+@media screen and (max-width: 820px) and (orientation: landscape) {
+  .hero.hero--full {
+    height: auto;
+  }
+  .hero__main {
+    padding-top: 30px;
+  }
+}
 @media screen and (max-width: 650px) {
+  .breadcrumbs {
+    li {
+      &:last-child {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex-shrink: 0;
+        max-width: 120px;
+        color: #9f9f9f;
+      }
+    }
+  }
+  .hero-title {
+    font-size: 19px;
+    line-height: 30px;
+  }
   .blog-container .title {
     font-size: 22px;
     line-height: 30px;
@@ -1466,11 +1563,27 @@
     }
     margin-bottom: 70px;
   }
+  .our-ways__container ul {
+    margin-top: 0;
+  }
   .our-ways__container ul li {
     width: 100%;
+    margin-top: 60px;
   }
   .choice-item {
-    width: 100%;
+    width: 50%;
+    .img {
+      width: 50px;
+      &::before {
+        width: 154px;
+        height: 154px;
+      }
+      &::after {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -1498,6 +1611,7 @@
   }
   .single-comment {
     width: 100%;
+    margin-right: 0;
     margin-bottom: 40px;
     &:last-child {
       margin-bottom: 0;
@@ -2069,6 +2183,16 @@
 }
 
 @media screen and (max-width: 525px) {
+  .contacts .title {
+    white-space: nowrap !important;
+  }
+  .contacts-big__container>ul>li {
+    width: 100%;
+    margin-right: 0;
+  }
+  .contacts-big {
+    padding-top: 80px;
+  }
   .course-info__container {
     .title {
       font-size: 24px;
@@ -2135,7 +2259,19 @@
   }
 }
 
+@media screen and (max-width: 413px) {
+  .choice-item {
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 @media screen and (max-width: 360px) {
+  .contacts .title {
+    white-space: normal !important;
+  }
   .course-info__container {
     .title {
       font-size: 18px;
