@@ -699,6 +699,10 @@
 }
 
 @media screen and (max-width: 992px) {
+  .video-content {
+    width: 76%;
+    padding-top: 47.23%;
+  }
   .contacts-big__container>ul>li {
     flex-direction: column;
     padding: 23px 0 40px;
@@ -1506,8 +1510,25 @@
   .hero__main {
     padding-top: 30px;
   }
+  .video-content {
+    width: 71%;
+    padding-top: 42.23%;
+  }
 }
 @media screen and (max-width: 650px) {
+  .js-anim.anim--title {
+    white-space: normal;
+  }
+  .offer-container {
+    .title {
+      font-size: 22px;
+      line-height: 36px;
+      strong {
+        font-size: 18px;
+        line-height: 36px;
+      }
+    }
+  }
   .breadcrumbs {
     li {
       &:last-child {

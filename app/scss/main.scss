@@ -1525,13 +1525,18 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
 .video-content {
   padding: 20px;
-  width: 1264px;
-  height: 100%;
+  width: 65.8%;
+  padding-top: 37.03%;
+  height: 0;
   max-height: 711px;
-  box-sizing: border-box;
+  //box-sizing: border-box;
   margin: auto 0;
+  position: relative;
 
   video, iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -4106,7 +4111,8 @@ img.lazyload, video.lazyload {
       left: 0;
       right: 0;
       height: 100%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #242424 67.04%);
+      //background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #242424 67.04%);
+      background: linear-gradient(180deg, transparent 0%, #242424 67.04%);
       content: '';
       transition: opacity 0.3s ease, visibility 0.3s ease;
 
