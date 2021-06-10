@@ -699,6 +699,9 @@
 }
 
 @media screen and (max-width: 992px) {
+  .blog-page {
+    padding: 80px 0;
+  }
   .video-content {
     width: 76%;
     padding-top: 47.23%;
@@ -722,6 +725,10 @@
   }
   .white-block .pagination ul li:first-child a, .white-block .pagination ul li:last-child a {
     color: rgba(255, 255, 255, 0);
+  }
+  .pagination ul li:first-child a, .pagination ul li:last-child a {
+    font-size: 2px;
+    line-height: 4px;
   }
   .courses-list__table {
     &.courses-list__table--custom {
@@ -798,8 +805,8 @@
     &:last-child, &:first-child {
       a {
         color: rgba(255, 255, 255, 0);
-        font-size: 8px;
-        line-height: 8px;
+        font-size: 2px;
+        line-height: 2px;
         height: 42px;
         &::before {
           height: 42px;
@@ -1028,6 +1035,13 @@
     }
   }
   .header__left {
+    &.no-events {
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+      z-index: -10;
+      //display: none;
+    }
     &.loaded {
       height: auto;
     }
@@ -1446,6 +1460,7 @@
 }
 
 @media screen and (min-width: 650px) and (max-width: 1100px) {
+
   .teacher__right .img {
     width: 235px;
     height: 312px;
@@ -1516,8 +1531,22 @@
   }
 }
 @media screen and (max-width: 650px) {
+  .pagination ul li:first-child {
+    margin-right: 40px;
+  }
+  .pagination ul li:last-child {
+    margin-left: 26px;
+  }
   .js-anim.anim--title {
     white-space: normal;
+  }
+  .big-menu__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    > ul {
+      margin-bottom: 15px;
+    }
   }
   .offer-container {
     .title {
@@ -2091,8 +2120,18 @@
     padding-top: 10px;
   }
   .contacts__form .title {
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  .thanks-container p {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .close-modal {
+    top: 4px;
+    left: 4px;
+    width: 36px;
+    height: 36px;
   }
   .our-life__single {
     margin-right: 0;
@@ -2331,6 +2370,18 @@
 }
 
 @media screen and (max-width: 359px) {
+  .title {
+    display: inline-block;
+    &.js-anim {
+      width: 100%;
+      &.anim--title.title {
+        width: 100%;
+      }
+    }
+  }
+  .header__left {
+    padding: 0 15px 0 0;
+  }
   .button-slide {
     font-size: 6px;
     line-height: 10px;
@@ -2338,5 +2389,17 @@
   .teacher-stats span {
     font-size: 42px;
     line-height: 54px;
+  }
+  .container-big, .container {
+    padding: 0 15px;
+  }
+  .blog-article__container {
+    padding: 0 15px;
+  }
+  .hero.hero--full {
+    height: auto;
+  }
+  .hero__main {
+    padding-top: 30px;
   }
 }

@@ -473,6 +473,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
 
+
   &.loading {
     opacity: 0;
     margin-left: -15px;
@@ -567,13 +568,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 
   }
 
-  &.no-events {
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-    z-index: -10;
-    //display: none;
-  }
+
 
   &:hover {
     span {

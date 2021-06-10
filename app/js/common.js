@@ -41,7 +41,8 @@ function openSearch() {
     } else {
         searchOpener.addEventListener('click', () => {
             searchBlock.classList.add('visible');
-            document.querySelector('.burger-btn').classList.add('no-events');
+
+            document.querySelector('.header__left').classList.add('no-events');
             setTimeout(() => {
                 searchContainer.classList.add('visible');
             }, 300)
@@ -49,7 +50,7 @@ function openSearch() {
         });
         searchClose.addEventListener('click', () => {
             searchContainer.classList.remove('visible');
-            document.querySelector('.burger-btn').classList.remove('no-events');
+            document.querySelector('.header__left').classList.remove('no-events');
             setTimeout(() => {
                 searchBlock.classList.remove('visible');
             }, 300)
