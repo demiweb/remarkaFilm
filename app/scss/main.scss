@@ -172,6 +172,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .hero__main {
@@ -208,7 +209,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     font-family: $main-font;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 29px;
     color: $white;
   }
@@ -224,7 +225,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       em {
         font-style: italic;
         font-weight: 400;
-        font-size: 13px;
+        font-size: 15px;
         line-height: 21px;
       }
     }
@@ -374,6 +375,7 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   margin-left: auto;
   padding-left: 30px;
   box-sizing: border-box;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -395,6 +397,85 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       transition: color 0.3s ease;
       color: $green;
     }
+  }
+}
+
+.hero__phones-icon {
+  width: 42px;
+  height: 42px;
+  border: 2px solid $green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    border-color: $green;
+    transition: border 0.3s ease;
+  }
+
+  &.open {
+    &:hover {
+      transition: border 0.3s ease;
+    }
+
+    transform: rotateZ(180deg);
+  }
+}
+
+.hero__phones-table {
+  background: #242424;
+  padding: 14px 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 360px;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.25);
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 10;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transform: translate(0, -170%);
+  opacity: 0;
+  visibility: hidden;
+
+  &.open {
+    transform: translate(0, 0);
+    opacity: 1;
+    visibility: visible;
+
+  }
+}
+
+.hero__phones-line {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    font-family: $second-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -567,7 +648,6 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     }
 
   }
-
 
 
   &:hover {
@@ -1570,7 +1650,8 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     justify-content: flex-start;
     bottom: 100%;
     margin-bottom: 10px;
-    width: 100%;
+    width: 200%;
+    right: 0;
     padding: 0;
     list-style: none;
     background: $white;
@@ -1584,10 +1665,19 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
       box-sizing: border-box;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
 
       &:last-child {
         margin-bottom: 0;
+      }
+
+      p {
+        font-family: $main-font;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        color: $black;
       }
 
       a {
@@ -1917,6 +2007,11 @@ img.lazyload, video.lazyload {
 .welcome {
   width: 100%;
   margin-top: 110px;
+  margin-bottom: 160px;
+
+  & + .our-ways {
+    padding-top: 70px;
+  }
 }
 
 .welcome-container {
@@ -4844,13 +4939,13 @@ img.lazyload, video.lazyload {
 
   .img {
     position: relative;
-    width: 55px;
+    width: 75px;
     height: auto;
     z-index: 1;
 
     &::before {
-      width: 174px;
-      height: 174px;
+      width: 194px;
+      height: 194px;
       display: inline-block;
       border-radius: 50%;
       content: '';
@@ -4863,8 +4958,8 @@ img.lazyload, video.lazyload {
     }
 
     &::after {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       display: inline-block;
       border-radius: 50%;
       content: '';
@@ -5279,6 +5374,14 @@ img.lazyload, video.lazyload {
 
     .courses-list__table {
       display: flex;
+
+      &--custom {
+        display: none;
+
+        &.selected {
+          display: flex;
+        }
+      }
     }
   }
 
@@ -5567,6 +5670,10 @@ img.lazyload, video.lazyload {
   align-items: flex-start;
   justify-content: flex-start;
 
+  button {
+    margin: 35px auto 35px;
+  }
+
   p {
     font-family: $main-font;
     font-style: normal;
@@ -5664,6 +5771,7 @@ img.lazyload, video.lazyload {
   transition: opacity 0.3s ease;
   transform: translate(0, -50%);
 }
+
 .img-hover {
   box-shadow: 0 4px 39px rgba(0, 0, 0, 0.25);
   position: absolute;
@@ -5678,6 +5786,7 @@ img.lazyload, video.lazyload {
   opacity: 0;
   visibility: hidden;
   transition: visibility 0.3s ease;
+
   img {
     position: absolute;
     top: 0;
@@ -5708,6 +5817,7 @@ img.lazyload, video.lazyload {
           visibility: visible;
           transition: opacity 0.3s ease, visibility 0.3s ease;
         }
+
         .courses-hoverable {
           opacity: 1;
           transition: opacity 0.3s ease;
@@ -5740,8 +5850,10 @@ img.lazyload, video.lazyload {
   padding: 250px 0 0;
   box-sizing: border-box;
 }
+
 .contacts-big__container {
   width: 100%;
+
   > ul {
     width: 100%;
     padding: 0;
@@ -5751,6 +5863,7 @@ img.lazyload, video.lazyload {
     align-items: stretch;
     justify-content: flex-start;
     flex-wrap: wrap;
+
     > li {
       width: 45%;
       margin-right: 10%;
@@ -5761,11 +5874,14 @@ img.lazyload, video.lazyload {
       padding: 50px 0 80px;
       box-sizing: border-box;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+
       &:nth-child(even) {
         margin-right: 0;
       }
+
       .left {
         width: 45%;
+
         p {
           font-family: $second-font;
           font-style: normal;
@@ -5776,6 +5892,7 @@ img.lazyload, video.lazyload {
           color: $white;
         }
       }
+
       .right {
         flex-grow: 1;
 
@@ -5783,6 +5900,7 @@ img.lazyload, video.lazyload {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
+
         ul {
           list-style: none;
           padding: 0;
@@ -5791,20 +5909,25 @@ img.lazyload, video.lazyload {
           align-items: flex-start;
           justify-content: flex-start;
           margin-top: 14px;
+
           li {
             margin-right: 20px;
+
             a {
               text-decoration: none;
               width: 22px;
               height: 22px;
+
               svg {
                 width: 100%;
                 height: 100%;
+
                 path {
                   fill: $white;
                   transition: fill 0.3s ease;
                 }
               }
+
               &:hover {
                 svg {
                   path {
@@ -5815,12 +5938,14 @@ img.lazyload, video.lazyload {
                 }
               }
             }
+
             &:last-child {
               margin-right: 0;
 
             }
           }
         }
+
         > p, a {
           font-family: $main-font;
           font-style: normal;
@@ -5832,6 +5957,7 @@ img.lazyload, video.lazyload {
           text-decoration: none;
 
         }
+
         > a {
           &:hover {
             text-decoration: underline;
@@ -5842,4 +5968,154 @@ img.lazyload, video.lazyload {
 
   }
 }
+
+.blog-categories {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  a {
+    text-decoration: none;
+    font-family: $second-font-2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    transition: border 0.3s ease;
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      border-bottom: 2px solid $green;
+      transition: border 0.3s ease;
+
+
+    }
+
+    &.current {
+      color: $green;
+      border-bottom: 2px solid $green;
+    }
+  }
+}
+
+.faq-block {
+  padding: 60px 0 140px;
+}
+
+.faq {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  h2 {
+    margin-bottom: 60px;
+  }
+
+  > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    div {
+      width: 100%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;
+      font-family: $main-font;
+      color: $white;
+
+    }
+    > div {
+      opacity: 0;
+      visibility: hidden;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.7s ease;
+
+      div {
+        padding-top: 40px;
+        &:last-child {
+          padding-top: 40px;
+        }
+        & + div {
+          padding-top: 15px;
+        }
+      }
+
+    }
+    span {
+      display: inline-block;
+      padding: 14px 0;
+      box-sizing: border-box;
+      width: 100%;
+
+      font-family: $second-font;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 27px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: $white;
+      border-bottom: 2px solid $white;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        color: $green;
+      }
+
+      &::after, &::before {
+        width: 14px;
+        height: 2px;
+        display: inline-block;
+        background: $white;
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transition: transform 0.4s ease;
+
+      }
+
+      &::after {
+        transform: rotate(90deg);
+        transition: transform 0.4s ease;
+
+
+      }
+
+      &.open {
+        &::after {
+          transform: rotate(0);
+
+        }
+        & + div {
+          opacity: 1;
+          visibility: visible;
+          max-height: 3000px;
+          transition: opacity 0.3s ease, visibility 0.3s ease, max-height 1.8s ease;
+        }
+      }
+    }
+  }
+}
+
 @import "media"; // Always at the end

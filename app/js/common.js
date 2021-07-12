@@ -744,5 +744,39 @@ window.addEventListener('resize',() => {
 })
 
 
+let phonesTopHeaderIcon = document.querySelector('.hero__phones-icon');
+
+function openPhonesBlockIcon() {
+    if (!phonesTopHeaderIcon) {
+
+    } else {
+        let phonesTopHeaderTable = document.querySelector('.hero__phones-table');
+        phonesTopHeaderIcon.addEventListener('click', () => {
+            phonesTopHeaderIcon.classList.toggle('open');
+            phonesTopHeaderTable.classList.toggle('open');
+        })
+    }
+}
+openPhonesBlockIcon();
+
+
+let faqOpener = [...document.querySelectorAll('.faq>div span')];
+
+
+function openFaqText() {
+    if (!faqOpener.length) {
+
+    } else {
+        faqOpener.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('open');
+            })
+        })
+    }
+}
+
+openFaqText();
+
+
 
 
