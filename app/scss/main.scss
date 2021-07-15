@@ -690,13 +690,17 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     list-style: none;
     padding-left: 84px;
     padding-right: 84px;
     box-sizing: border-box;
 
     li {
+      margin-right: 60px;
+      &:last-child {
+        margin-right: 0;
+      }
 
       a, svg text {
         font-family: $second-font;
@@ -715,6 +719,47 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
         &:hover {
           color: #D7FA00;
           transition: color 0.3s ease;
+        }
+      }
+      &.menu-item-has-children {
+        position: relative;
+        &:hover {
+          .sub-menu {
+            opacity: 1;
+            visibility: visible;
+            transition: visibility 0.3s ease, opacity 0.3s ease;
+          }
+        }
+      }
+    }
+    .sub-menu {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+      z-index: 6;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0.3s ease, opacity 0.3s ease;
+      width: auto;
+      position: absolute;
+      top: 100%;
+      padding: 0;
+      left: 0;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      li {
+        padding: 10px 6px;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+
+        &:hover {
+          background: $green;
+        }
+        a {
+          width: 100%;
+          color: #242424;
         }
       }
     }
