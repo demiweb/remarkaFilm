@@ -777,6 +777,21 @@ function openFaqText() {
 
 openFaqText();
 
+let haveSubMenuLi = [...document.querySelectorAll('.menu-item-has-children > a')];
+
+function noLinkForSubSubMenu() {
+    if (!haveSubMenuLi.length) {
+
+    } else {
+        haveSubMenuLi.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+            })
+        })
+    }
+}
+noLinkForSubSubMenu();
+
 
 
 
